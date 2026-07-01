@@ -1,0 +1,20 @@
+/* ==========================================================
+   src/theme/radius.css
+   RADIUS UTILITIES — resolved from theme/tokens.css.
+   Apply these to new components. Never hardcode px values.
+
+   Scale reference:
+     --radius-sm:   6px    chips, small badges
+     --radius-md:   8px    buttons, inputs, small cards
+     --radius-lg:   12px   standard cards, panels
+     --radius-xl:   16px   auth cards, feature panels
+     --radius-2xl:  20px   modals, large surfaces
+     --radius-full: 9999px pills, avatars, FABs
+   ========================================================== */
+
+.rounded-sm   { border-radius: var(--radius-sm); }
+.rounded-md   { border-radius: var(--radius-md); }
+.rounded-lg   { border-radius: var(--radius-lg); }
+.rounded-xl   { border-radius: var(--radius-xl); }
+.rounded-2xl  { border-radius: var(--radius-2xl); }
+.rounded-full { border-radius: var(--radius-full); }

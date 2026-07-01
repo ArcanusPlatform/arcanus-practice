@@ -1,0 +1,133 @@
+/* Arcanus Practice Branding Styles */
+
+.mcm-full-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 24px 32px;
+  border-radius: var(--radius-2xl);
+  border: 1px solid var(--color-primary);
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  box-shadow: var(--glow-brand);
+  transition: box-shadow var(--dur-base) var(--ease-out), transform var(--dur-base) var(--ease-out);
+  margin-bottom: 2rem;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.mcm-full-container:hover {
+  box-shadow: var(--glow-brand-hover);
+  transform: scale(1.02);
+}
+
+.mcm-logo {
+  height: 70px;
+  width: auto;
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 4px rgba(var(--brand-primary-rgb), 0.55));
+}
+
+.mcm-text-block {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+  font-family: var(--font-sans);
+  white-space: nowrap;
+}
+
+.mcm-text-customs {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--color-text);
+  letter-spacing: 0.5px;
+}
+
+.mcm-text-manager {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--color-accent);
+  letter-spacing: 0.5px;
+}
+
+/* Tablet and smaller desktops */
+@media (max-width: 768px) {
+  .mcm-full-container {
+    padding: 20px 28px;
+    gap: 14px;
+  }
+
+  .mcm-logo {
+    height: 60px;
+  }
+
+  .mcm-text-customs,
+  .mcm-text-manager {
+    font-size: 28px;
+  }
+}
+
+/* Mobile landscape and narrow browsers */
+@media (max-width: 640px) {
+  .mcm-full-container {
+    padding: 18px 24px;
+    gap: 12px;
+  }
+
+  .mcm-logo {
+    height: 52px;
+  }
+
+  .mcm-text-customs,
+  .mcm-text-manager {
+    font-size: 24px;
+    letter-spacing: 0.5px;
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+  .mcm-full-container {
+    padding: 16px 20px;
+    gap: 10px;
+    border-radius: 20px;
+  }
+
+  .mcm-logo {
+    height: 46px;
+  }
+
+  .mcm-text-customs,
+  .mcm-text-manager {
+    font-size: 20px;
+    letter-spacing: 0.5px;
+  }
+}
+
+/* Very small devices (iPhone SE, etc.) */
+@media (max-width: 380px) {
+  .mcm-full-container {
+    padding: 14px 16px;
+    gap: 8px;
+    border-radius: 18px;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .mcm-logo {
+    height: 40px;
+  }
+
+  .mcm-text-customs,
+  .mcm-text-manager {
+    font-size: 18px;
+    letter-spacing: 0.5px;
+  }
+
+  .mcm-full-container:hover {
+    transform: scale(1.01);
+  }
+}

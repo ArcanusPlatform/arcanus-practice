@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Onboarding Pack – {{client_name}}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --primary: #6A1B9A;
+      --primary-dark: #4A148C;
+      --primary-soft: #F3E5F5;
+      --border: #E0E0E0;
+      --text-main: #1A1A1A;
+      --text-muted: #666666;
+      --bg-app: #F9FAFB;
+      --sidebar-w: 260px;
+    }
+
+    .black-theme {
+      --primary: #2C2C2C;
+      --primary-dark: #000000;
+      --primary-soft: #F2F2F2;
+    }
+
+    * { box-sizing: border-box; -webkit-print-color-adjust: exact; }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      color: var(--text-main);
+      background: var(--bg-app);
+      display: flex;
+    }
+
+    /* --- SIDEBAR --- */
+    .sidebar {
+      width: var(--sidebar-w);
+      background: #ffffff;
+      height: 100vh;
+      position: fixed;
+      border-right: 1px solid var(--border);
+      padding: 30px 20px;
+      z-index: 100;
+    }
+
+    .btn-toggle {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: white;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 13px;
+    }
+
+    .btn-toggle.active { background: var(--primary); color: white; border-color: var(--primary); }
+
+    /* --- CONTENT --- */
+    .content-wrapper {
+      margin-left: var(--sidebar-w);
+      flex: 1;
+      padding: 40px 60px;
+      max-width: 1100px;
+    }
+
+    .welcome-hero {
+      background: var(--primary);
+      color: white;
+      padding: 40px;
+      border-radius: 16px;
+      margin-bottom: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .section-title {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--primary);
+      margin: 40px 0 15px 0;
+      font-weight: 800;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 8px;
+    }
+
+    .card { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 24px; }
+
+    /* Checklist Styling */
+    .step-list { list-style: none; padding: 0; }
+    .step-item {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 15px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #f5f5f5;
+    }
+    .step-number {
+      background: var(--primary-soft);
+      color: var(--primary);
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 12px;
+      flex-shrink: 0;
+    }
+
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+
+    .deadline-badge {
+      background: #FEE2E2;
+      color: #991B1B;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 12px;
+    }
+
+    @media print {
+      .sidebar { display: none; }
+      .content-wrapper { margin-left: 0; padding: 0; }
+      .welcome-hero { border-radius: 0; }
+    }
+  </style>
+
+  <script>
+    function toggleTheme(theme) {
+      document.body.className = theme;
+      document.getElementById('pBtn').classList.toggle('active', theme === 'purple-theme');
+      document.getElementById('bBtn').classList.toggle('active', theme === 'black-theme');
+      const logoUrl = theme === 'black-theme' ? '{{logo_black_url}}' : '{{logo_purple_url}}';
+      document.getElementById('sideLogo').src = logoUrl;
+      document.getElementById('heroLogo').src = logoUrl;
+    }
+  </script>
+</head>
+
+<body class="purple-theme">
+
+  <nav class="sidebar">
+    <img id="sideLogo" src="{{logo_purple_url}}" alt="Logo" style="max-width: 130px; margin-bottom: 20px;" />
+    <small style="font-weight: bold; color: var(--text-muted); font-size: 10px;">BRANDING</small>
+    <button id="pBtn" class="btn-toggle active" onclick="toggleTheme('purple-theme')">Purple (Client)</button>
+    <button id="bBtn" class="btn-toggle" onclick="toggleTheme('black-theme')">Black (Formal)</button>
+  </nav>
+
+  <main class="content-wrapper">
+    
+    <div class="welcome-hero">
+      <div>
+        <h1 style="margin: 0; font-size: 32px;">Welcome,</h1>
+        <h2 style="margin: 5px 0 0 0; font-weight: 400; opacity: 0.9;">{{client_name}}</h2>
+      </div>
+      <img id="heroLogo" src="{{logo_purple_url}}" style="height: 60px; filter: brightness(0) invert(1);" />
+    </div>
+
+    <div class="grid-2">
+      <div>
+        <div class="section-title">Onboarding Roadmap</div>
+        <div class="card">
+          <ul class="step-list">
+            <li class="step-item">
+              <div class="step-number">1</div>
+              <div>
+                <strong>Engagement Agreement</strong>
+                <p style="margin: 5px 0; font-size: 13px; color: var(--text-muted);">Review and sign the professional engagement letter sent on {{engagement_sent_date}}.</p>
+              </div>
+            </li>
+            <li class="step-item">
+              <div class="step-number">2</div>
+              <div>
+                <strong>Identity Verification</strong>
+                <p style="margin: 5px 0; font-size: 13px; color: var(--text-muted);">Status: <span style="color: green; font-weight: 700;">Verified</span>. AML check completed for {{client_name}}.</p>
+              </div>
+            </li>
+            <li class="step-item">
+              <div class="step-number">3</div>
+              <div>
+                <strong>Authority Mandates</strong>
+                <p style="margin: 5px 0; font-size: 13px; color: var(--text-muted);">Sign the 64-8 Agent Authorisation for HMRC and Companies House WebFiling.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div>
+        <div class="section-title">Urgent Priorities</div>
+        <div class="card">
+          <p style="font-size: 14px; font-weight: 700; margin-bottom: 15px;">Upcoming Compliance Deadlines:</p>
+          <div style="margin-bottom: 15px;">
+            <span class="deadline-badge">DUE 04 APR 2026</span>
+            <p style="margin: 5px 0; font-size: 13px;"><strong>VAT Return Submission</strong><br>Quarterly return for {{client_name}}.</p>
+          </div>
+          <div style="margin-bottom: 15px;">
+            <span class="deadline-badge" style="background:#FEF3C7; color:#92400E;">DUE 15 AUG 2026</span>
+            <p style="margin: 5px 0; font-size: 13px;"><strong>Confirmation Statement</strong><br>Companies House Annual Filing.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-title">Required Information Checklist</div>
+    <div class="card">
+      <div class="grid-2" style="font-size: 13px;">
+        <ul style="padding-left: 20px;">
+          <li style="margin-bottom: 8px;">Access to accounting software (Xero/Quickbooks)</li>
+          <li style="margin-bottom: 8px;">Last 3 months of bank statements (PDF or CSV)</li>
+          <li style="margin-bottom: 8px;">Copy of Incorporation Certificate for Co. No {{company_number}}</li>
+        </ul>
+        <ul style="padding-left: 20px;">
+          <li style="margin-bottom: 8px;">Directors' ID (Passports/Drivers Licences)</li>
+          <li style="margin-bottom: 8px;">PAYE Reference and P11D data for staff</li>
+          <li style="margin-bottom: 8px;">Previous Year Accounts for period ending Feb 2025</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-title">Your Service Team</div>
+    <div class="card">
+      <div style="display: flex; gap: 40px;">
+        <div>
+          <span style="font-size: 11px; text-transform: uppercase; color: var(--text-muted);">Lead Partner</span><br>
+          <strong>{{practice_contact}}</strong>
+        </div>
+        <div>
+          <span style="font-size: 11px; text-transform: uppercase; color: var(--text-muted);">Email Support</span><br>
+          <strong>{{practice_email}}</strong>
+        </div>
+        <div>
+          <span style="font-size: 11px; text-transform: uppercase; color: var(--text-muted);">Office Phone</span><br>
+          <strong>{{practice_phone}}</strong>
+        </div>
+      </div>
+    </div>
+
+    <footer style="margin-top: 50px; text-align: center; font-size: 10px; color: var(--text-muted); border-top: 1px solid var(--border); padding-top: 20px;">
+      <strong>{{practice_name}}</strong> • {{practice_address}}<br>
+      <em>This pack is for onboarding purposes only. Reference: {{client_ref}}</em>
+    </footer>
+  </main>
+</body>
+</html>

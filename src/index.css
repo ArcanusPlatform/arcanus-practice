@@ -1,0 +1,22 @@
+/* ==========================================================
+   src/index.css — root stylesheet entry point
+   ──────────────────────────────────────────────────────────
+   Load order:
+     1. @arcanus/theme  — primitive tokens → semantic tokens
+                        → base component classes
+     2. src/theme       — app-layer utilities (new components)
+     3. src/styles/legacy.css — backwards-compat bridge
+     4. src/styles/global.css — Tailwind + remaining overrides
+   ========================================================== */
+
+/* 1. Design-system package (tokens → semantics → components) */
+@import '../theme/index.css';
+
+/* 2. App-layer theme utilities for new development */
+@import './theme/index.css';
+
+/* 3. Backwards-compatibility bridge for legacy TSX class names */
+@import './styles/legacy.css';
+
+/* 4. Tailwind + project-specific overrides */
+@import './styles/global.css';

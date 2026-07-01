@@ -1,0 +1,133 @@
+/* ==========================================================
+   src/theme/auth.css
+   AUTH PAGE COMPONENT CLASSES — new canonical API.
+   New auth screens should use these classes, not the legacy
+   .authCard, .authButton, .authInput etc.
+
+   The two-panel auth layout from theme/components.css:
+     .auth           — 2-col grid (aside | panel)
+     .auth__aside    — brand panel (left, dark chrome)
+     .auth__panel    — form container (right)
+     .auth__card     — the form card (max-width 380px)
+
+   New convenience classes live here.
+   ========================================================== */
+
+/* ---- Auth card header ------------------------------------ */
+.auth-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  text-align: center;
+}
+
+.auth-brand__mark {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-xl);
+  background: var(--gradient-brand);
+  box-shadow: var(--glow-brand);
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-weight: var(--weight-bold);
+  font-size: var(--text-xl);
+}
+
+.auth-brand__name {
+  font-size: var(--text-lg);
+  font-weight: var(--weight-bold);
+  color: var(--color-text);
+  letter-spacing: -0.01em;
+}
+
+.auth-brand__sub {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+/* ---- Divider with label ---------------------------------- */
+.auth-divider {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  color: var(--color-text-subtle);
+  font-size: var(--text-xs);
+}
+.auth-divider::before,
+.auth-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--color-border);
+}
+
+/* ---- Social / alternate sign-in button ------------------- */
+.auth-alt-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  height: 44px;
+  width: 100%;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  cursor: pointer;
+  transition: background var(--dur-fast) var(--ease-out),
+              border-color var(--dur-fast) var(--ease-out);
+}
+.auth-alt-btn:hover {
+  background: var(--color-surface-hover);
+  border-color: var(--color-border-brand);
+}
+
+/* ---- Footer links ---------------------------------------- */
+.auth-footer {
+  text-align: center;
+  font-size: var(--text-xs);
+  color: var(--color-text-subtle);
+}
+.auth-footer a {
+  color: var(--color-accent);
+  text-decoration: none;
+  font-weight: var(--weight-medium);
+}
+.auth-footer a:hover { text-decoration: underline; }
+
+/* ---- Forgot / row links ---------------------------------- */
+.auth-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: var(--text-sm);
+}
+.auth-link {
+  color: var(--color-accent);
+  text-decoration: none;
+  font-weight: var(--weight-medium);
+}
+.auth-link:hover { text-decoration: underline; }
+
+/* ---- Error alert ----------------------------------------- */
+.auth-error {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-danger-soft);
+  border: 1px solid rgba(var(--color-danger), 0.25);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  color: var(--color-danger);
+}
+
+/* ---- Responsive: collapse aside on small screens --------- */
+@media (max-width: 860px) {
+  .auth { grid-template-columns: 1fr; }
+  .auth__aside { display: none; }
+}

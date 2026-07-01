@@ -1,0 +1,72 @@
+/* FeedbackButtons.module.css - Feedback widget component styles */
+
+/* Main container for feedback prompt */
+.container {
+  padding: 1.5rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  text-align: center;
+}
+
+/* Question text */
+.question {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+/* Button group container */
+.buttonGroup {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+/* Base button styling for feedback buttons */
+.button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: transparent;
+  border: 1px solid;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+/* Helpful button - green theme */
+.helpfulButton {
+  border-color: var(--color-success);
+  color: var(--color-success);
+}
+
+.helpfulButton:hover {
+  background: var(--color-success);
+  color: var(--color-text-on-primary);
+}
+
+/* Not helpful button - red theme */
+.notHelpfulButton {
+  border-color: var(--color-danger);
+  color: var(--color-danger);
+}
+
+.notHelpfulButton:hover {
+  background: var(--color-danger);
+  color: var(--color-text-on-primary);
+}
+
+/* Success message after feedback submitted */
+.successMessage {
+  padding: 1rem;
+  background: var(--color-success-soft);
+  border: 1px solid var(--color-success);
+  border-radius: 8px;
+  text-align: center;
+  font-size: 0.95rem;
+  color: var(--color-success);
+}

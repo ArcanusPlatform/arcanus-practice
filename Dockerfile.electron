@@ -1,0 +1,39 @@
+#!/bin/bash
+
+# Dockerfile for building Linux Electron app
+# Enables cross-platform builds on any OS
+
+FROM node:18-alpine
+
+WORKDIR /app
+
+# Install build dependencies
+RUN apk add --no-cache \
+    python3 \
+    make \
+    g++ \
+    cairo-dev \
+    jpeg-dev \
+    pango-dev \
+    giflib-dev \
+    pixman-dev
+
+# Install pnpm
+RUN npm install -g pnpm
+
+# Copy project
+COPY . .
+
+# Install dependencies
+RUN pnpm install
+RUN pnpm --prefix backend install
+
+# Build
+RUN pnpm run build:frontend
+RUN pnpm --prefix backend run build
+
+# Build Electron Linux app
+RUN pnpm run electron:build:linux
+
+# Output built app
+CMD ["sh", "-c", "echo 'Build complete!' && ls -lh dist-electron/"]

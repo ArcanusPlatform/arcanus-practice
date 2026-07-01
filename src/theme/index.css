@@ -1,0 +1,26 @@
+/* ==========================================================
+   src/theme/index.css
+   APP-LAYER THEME BARREL
+   ──────────────────────────────────────────────────────────
+   Imports the component utilities built on the @arcanus/theme
+   token package. These are the classes new features should use.
+
+   Import chain:
+     src/index.css
+       → ../theme/index.css       (primitives + semantics)
+       → src/theme/index.css      (this file — app utilities)
+       → src/styles/legacy.css    (backwards-compat bridge)
+       → src/styles/global.css    (Tailwind + remaining overrides)
+   ========================================================== */
+
+/* App-layer theme utilities (new development) */
+@import './typography.css';
+@import './spacing.css';
+@import './radius.css';
+@import './shadows.css';
+@import './motion.css';
+@import './buttons.css';
+@import './forms.css';
+@import './cards.css';
+@import './loading.css';
+@import './auth.css';

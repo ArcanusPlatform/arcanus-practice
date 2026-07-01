@@ -1,0 +1,50 @@
+/* ==========================================================
+   src/theme/colors.css
+   COLOR TOKENS — re-exports from the theme package.
+   Consume these in new components instead of raw hex values
+   or primitive palette tokens. Every value resolves through
+   the light/dark semantic layer in theme/themes.css.
+   ========================================================== */
+
+/*
+  SURFACES
+  --color-bg              Page background
+  --color-bg-elevated     Elevated surface (input fills, popover)
+  --color-surface         Card / panel surface
+  --color-surface-2       Secondary surface (between 800/700)
+  --color-surface-hover   Hover state for surfaces
+  --color-chrome          App chrome (topbar, sidebar)
+  --color-chrome-2        Secondary chrome
+
+  TEXT
+  --color-text            Primary body text
+  --color-text-muted      Secondary / helper text
+  --color-text-subtle     Disabled / placeholder text
+  --color-text-on-primary Text on filled primary buttons
+
+  BORDERS
+  --color-border          Standard border
+  --color-border-soft     Subtle border (chrome dividers)
+  --color-border-brand    Brand-tinted border
+
+  BRAND
+  --color-primary         Primary action colour
+  --color-primary-hover   Hover state
+  --color-primary-soft    Soft tint (backgrounds, chips)
+  --color-accent          Accent (lighter brand highlight)
+  --color-ring            Focus ring
+
+  STATUS
+  --color-success / --color-success-soft
+  --color-warning / --color-warning-soft
+  --color-danger  / --color-danger-soft
+  --color-info    / --color-info-soft
+
+  PREMIUM
+  --color-gold            Assist accent gold
+  --color-gold-soft       Gold soft tint
+
+  All of these tokens are declared in theme/themes.css and
+  inherit from theme/tokens.css. This file is a documentation
+  reference — no additional declarations needed here.
+*/

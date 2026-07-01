@@ -1,0 +1,116 @@
+/* ==========================================================
+   src/theme/forms.css
+   FORM COMPONENT CLASSES — new canonical API.
+   New components should use these, not the legacy .authInput.
+
+   Usage:
+     <div class="field">
+       <label class="label">Email</label>
+       <div class="input-group">
+         <span class="input-group__icon"><Icon /></span>
+         <input class="input" type="email" />
+       </div>
+       <span class="field-hint">We'll never share your email.</span>
+     </div>
+
+   Base .field, .label, .input, .input-group classes are
+   defined in theme/components.css. This file adds the
+   extended set for selects, textareas, and helper text.
+   ========================================================== */
+
+/* ---- Select ----------------------------------------------- */
+.select {
+  height: 44px;
+  padding: 0 var(--space-10) 0 var(--space-4);
+  background: var(--color-bg-elevated)
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E")
+    no-repeat right var(--space-3) center;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+  font-family: inherit;
+  font-size: var(--text-sm);
+  appearance: none;
+  cursor: pointer;
+  transition: border-color var(--dur-fast) var(--ease-out),
+              box-shadow   var(--dur-fast) var(--ease-out);
+}
+.select:focus {
+  outline: none;
+  border-color: var(--color-ring);
+  box-shadow: var(--shadow-focus);
+}
+
+/* ---- Textarea --------------------------------------------- */
+.textarea {
+  padding: var(--space-3) var(--space-4);
+  min-height: 96px;
+  resize: vertical;
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+  font-family: inherit;
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
+  transition: border-color var(--dur-fast) var(--ease-out),
+              box-shadow   var(--dur-fast) var(--ease-out);
+}
+.textarea::placeholder { color: var(--color-text-subtle); }
+.textarea:focus {
+  outline: none;
+  border-color: var(--color-ring);
+  box-shadow: var(--shadow-focus);
+}
+
+/* ---- Helper / hint text ----------------------------------- */
+.field-hint {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+.field-error {
+  font-size: var(--text-xs);
+  color: var(--color-danger);
+}
+
+/* ---- Error state on inputs -------------------------------- */
+.input--error,
+.select--error,
+.textarea--error {
+  border-color: var(--color-danger);
+}
+.input--error:focus,
+.select--error:focus,
+.textarea--error:focus {
+  box-shadow: 0 0 0 3px rgba(var(--color-danger), 0.25);
+}
+
+/* ---- Checkbox / radio ------------------------------------- */
+.checkbox,
+.radio {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--color-primary);
+  cursor: pointer;
+}
+
+/* ---- Form layout helpers ---------------------------------- */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+}
+
+@media (max-width: 640px) {
+  .form-row { grid-template-columns: 1fr; }
+}
+
+.form-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-3);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-border);
+}

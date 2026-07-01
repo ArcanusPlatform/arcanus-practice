@@ -1,0 +1,89 @@
+/* ==========================================================
+   src/theme/buttons.css
+   BUTTON COMPONENT CLASSES — new canonical API.
+   New components (Sentinel, Practice, Customs, Ledger)
+   should use these classes, not the legacy .btn-primary etc.
+
+   Usage:
+     <button class="btn btn--primary">Save</button>
+     <button class="btn btn--secondary btn--sm">Cancel</button>
+     <button class="btn btn--ghost btn--icon">
+       <Icon />
+     </button>
+
+   These classes are also declared in theme/components.css
+   as the canonical source. This file is the app-layer export
+   so src/theme/* imports stay self-contained.
+   ========================================================== */
+
+/*
+  Base and variants are defined in theme/components.css:
+
+  .btn           — base (height 40px, inline-flex, semibold)
+  .btn--primary  — filled brand colour
+  .btn--secondary — outlined neutral
+  .btn--ghost    — transparent, muted text
+  .btn--block    — full width
+
+  Additional size modifiers (new):
+*/
+
+.btn--sm {
+  height: 32px;
+  padding: 0 var(--space-3);
+  font-size: var(--text-xs);
+  border-radius: var(--radius-sm);
+}
+
+.btn--lg {
+  height: 48px;
+  padding: 0 var(--space-6);
+  font-size: var(--text-base);
+  border-radius: var(--radius-lg);
+}
+
+/* Icon-only button — square, no padding */
+.btn--icon {
+  width: 40px;
+  padding: 0;
+}
+.btn--icon.btn--sm { width: 32px; }
+.btn--icon.btn--lg { width: 48px; }
+
+/* Destructive variant */
+.btn--danger {
+  background: var(--color-danger);
+  color: var(--color-text-on-primary);
+  border-color: transparent;
+}
+.btn--danger:hover { opacity: 0.88; }
+
+/* Success variant */
+.btn--success {
+  background: var(--color-success);
+  color: var(--color-text-on-primary);
+  border-color: transparent;
+}
+.btn--success:hover { opacity: 0.88; }
+
+/* Workspace header action */
+.workspace-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  height: 36px;
+  padding: 0 var(--space-4);
+  background: var(--color-primary-soft);
+  border: 1px solid var(--color-border-brand);
+  border-radius: var(--radius-md);
+  color: var(--color-accent);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  cursor: pointer;
+  transition: background var(--dur-fast) var(--ease-out),
+              border-color var(--dur-fast) var(--ease-out);
+}
+.workspace-action-btn:hover {
+  background: rgba(var(--brand-primary-rgb), 0.22);
+  border-color: rgba(var(--brand-primary-rgb), 0.45);
+}

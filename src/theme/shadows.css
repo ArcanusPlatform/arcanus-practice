@@ -1,0 +1,42 @@
+/* ==========================================================
+   src/theme/shadows.css
+   SHADOW UTILITIES — resolved from theme/themes.css.
+   Use these in new components. The values automatically
+   adjust for light vs dark theme.
+
+   Scale reference:
+     --shadow-sm     Subtle lift (inputs, small cards)
+     --shadow-md     Cards, dropdowns, panels
+     --shadow-lg     Modals, drawers, overlays
+     --shadow-focus  Focus ring (brand-tinted)
+     --glow-brand    Hero moments (brand headers, splash)
+     --glow-brand-hover  Hover intensified glow
+   ========================================================== */
+
+.shadow-sm    { box-shadow: var(--shadow-sm); }
+.shadow-md    { box-shadow: var(--shadow-md); }
+.shadow-lg    { box-shadow: var(--shadow-lg); }
+.shadow-focus { box-shadow: var(--shadow-focus); }
+.shadow-brand { box-shadow: var(--glow-brand); }
+
+/* ---- Surface shadow classes ------------------------------- */
+.surface-card  {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.surface-panel {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+}
+
+.surface-overlay {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-soft);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+}

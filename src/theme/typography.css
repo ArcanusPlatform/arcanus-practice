@@ -1,0 +1,67 @@
+/* ==========================================================
+   src/theme/typography.css
+   TYPOGRAPHY UTILITIES — built on theme token primitives.
+   New components should use these classes or compose from
+   the underlying tokens directly. Never hardcode font sizes
+   or weights.
+   ========================================================== */
+
+/* ---- Scale ------------------------------------------------ */
+.text-xs     { font-size: var(--text-xs); }
+.text-sm     { font-size: var(--text-sm); }
+.text-base   { font-size: var(--text-base); }
+.text-lg     { font-size: var(--text-lg); }
+.text-xl     { font-size: var(--text-xl); }
+.text-2xl    { font-size: var(--text-2xl); }
+.text-3xl    { font-size: var(--text-3xl); }
+.text-4xl    { font-size: var(--text-4xl); }
+
+/* ---- Weight ----------------------------------------------- */
+.weight-regular  { font-weight: var(--weight-regular); }
+.weight-medium   { font-weight: var(--weight-medium); }
+.weight-semibold { font-weight: var(--weight-semibold); }
+.weight-bold     { font-weight: var(--weight-bold); }
+
+/* ---- Role colours ----------------------------------------- */
+.text-primary  { color: var(--color-text); }
+.text-muted    { color: var(--color-text-muted); }
+.text-subtle   { color: var(--color-text-subtle); }
+.text-brand    { color: var(--color-primary); }
+.text-accent   { color: var(--color-accent); }
+.text-success  { color: var(--color-success); }
+.text-warning  { color: var(--color-warning); }
+.text-danger   { color: var(--color-danger); }
+.text-info     { color: var(--color-info); }
+
+/* ---- Mono -------------------------------------------------- */
+.font-mono { font-family: var(--font-mono); }
+
+/* ---- Heading presets -------------------------------------- */
+.heading-page {
+  font-size: var(--text-3xl);
+  font-weight: var(--weight-bold);
+  letter-spacing: -0.02em;
+  line-height: var(--leading-tight);
+  color: var(--color-text);
+}
+
+.heading-section {
+  font-size: var(--text-xl);
+  font-weight: var(--weight-semibold);
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+}
+
+.heading-card {
+  font-size: var(--text-base);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text);
+}
+
+.label-caps {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
