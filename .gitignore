@@ -40,3 +40,4 @@ data/*.json
 .env
 .env.example
 .env.production
+Data/
